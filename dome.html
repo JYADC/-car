@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Document</title>
+<style type="text/css">
+*{margin: 0;padding: 0;}
+html,body{width: 100%;height: 100%;}
+#racing{width: 100%;height: 100%;overflow: hidden;position: relative;}
+.road{width: 100%;height: 200%;background: url(images/sai.jpg);background-size: 100% 100%;position: absolute;bottom: 0;
+/*-webkit-animation: 5680ms carmove linear infinite;*/
+}
+@-webkit-keyframes carmove {
+  0% {
+    -webkit-transform: translate3d(0, 0%, 0);
+  }
+
+  100% {    
+    -webkit-transform: translate3d(0, 50%, 0);
+  }
+}
+
+@-webkit-keyframes hindermove {
+  0% {
+    -webkit-transform: translate3d(0, 0%, 0);
+  }
+
+  100% {    
+    -webkit-transform: translate3d(0, 500%, 0);
+  }
+}
+@-webkit-keyframes linemove {
+  0% {
+    -webkit-transform: translate3d(0, 765%, 0);
+  }
+
+  100% {    
+    -webkit-transform: translate3d(0, 1483%, 0);
+  }
+}
+@-webkit-keyframes linemove2 {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+  }
+
+  100% {    
+    -webkit-transform: translate3d(0, 765%, 0);
+  }
+}
+#clock{width: 135px;position: absolute;z-index: 100;margin: 5px 0 0 10px;}
+#clock img{width: 100%;z-index: 0;position: absolute;}
+#clock span{color: white;position: absolute;top: 28px;left: 58px;font-size: 23px;}
+#racing .btn{width: 20.833333%;top: 78.086956%;z-index: 20;position: absolute;}
+#btnl {left: 22.7777%;}
+#btnr {right: 22.7777%;}
+#speed{width: 16.1111111%;top: 75.217391%;right: 1.5277777%;z-index: 20;position: absolute;}
+
+#racing #mycar{width: 15.083333%;top: 59.391304%;left: 42%;z-index: 11;position: absolute;}
+#racing .hidermover{-webkit-animation: 5680ms hindermove linear;animation: 5680ms hindermove linear;}
+#racing .animationstop{-webkit-animation-playState:paused}
+
+#hinder_wrap{width: 100%;height: 100%;position: absolute;top: -100%;z-index: 10;-webkit-transform: translate3d(0, 0%, 0);}
+.hinder{width: 7.361111%;position: absolute;z-index: 10;/*-webkit-transform: translate3d(0, -100px, 0)*/}
+.foe{width: 12.222222%;left: 0%;position: absolute;z-index: 10;/*-webkit-transform: translate3d(0, -100px, 0)*/;}
+.foe .foe_car{width: 100%;position: none}
+.foe .foe_l{width: 59.090909%;top: 32.307692%;left: -37%;position: absolute;visibility: hidden;}
+.foe .foe_r{width: 59.090909%;top: 32.307692%;left: 77.272727%;position: absolute;visibility: hidden;}
+
+#start_line{width: 81.25%;position: absolute;left: 9.30555%;height: 6.8%;position: absolute;-webkit-transform: translate3d(0, 765%, 0);}
+#ryg{width: 19.7222222%;top: 11.565217%;left: 40.138888%;height: 28.43478%;position: absolute;display: none;}
+#racing p{color: white;font-size: 50px;font-weight: bold;position: absolute;top: 40.347826%;width: 100%;text-align: center;z-index: 20;font-family: "微软雅黑";display: none;}
+
+@media screen and (max-width: 320px) {
+	#racing p{font-size: 40px;}
+	#clock{width: 120px;}
+	#clock span{top: 25px;left: 53px;font-size: 20px;}
+}
+
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    -ms-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    -ms-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+</style>
+</head>
+<body>
+<div id="racing">
+	<div id="clock"><img src="images/clock.png" alt=""><span>0:0:30</span></div>
+	<div id="road" class="road"></div>
+	<img id="btnl" class="btn" src="images/left_button.png" alt="">
+	<img id="btnr" class="btn" src="images/right_button.png" alt="">
+	<img id="speed" src="images/add_speed.png" alt="">
+	<img id="mycar" src="images/mycar.png" alt="">
+	<img id="start_line" src="images/starting_line.png" alt="">
+	<img id="ryg" class="animated fadeInDown" src="images/ready_red.png" alt="">
+	<p class="animated fadeInUp">READY</p>
+  <div id="hinder_wrap"></div>
+<!-- 	<img class="hinder" src="images/hinder.png" alt="">
+	<div class="foe">
+		<img class="foe_car" src="images/foe_car.png" alt="">
+		<img class="foe_l" src="images/foe_l.png" alt="">
+		<img class="foe_r" src="images/foe_r.png" alt="">	
+	</div> -->
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/racing.js"></script>
+</html>
